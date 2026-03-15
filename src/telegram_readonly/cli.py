@@ -315,7 +315,7 @@ async def cmd_unread_dialogs(args: argparse.Namespace) -> int:
 def cmd_help(args: argparse.Namespace) -> int:
     payload = {
         "tool": "telegram-readonly",
-        "purpose": "Read-only Telegram access for Robin's personal account via Telethon/MTProto.",
+        "purpose": "Read-only Telegram access for a user's personal account via Telethon/MTProto.",
         "defaults": {
             "dialogs": 50,
             "messages": 50,

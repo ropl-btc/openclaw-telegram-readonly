@@ -2,7 +2,7 @@
 
 ## What this skill is for
 
-Use this skill to read Telegram chats from Robin's personal account via Telethon/MTProto in a controlled, read-only way.
+Use this skill to read Telegram chats from the user's personal account via Telethon/MTProto in a controlled, read-only way.
 
 This is not a Telegram bot skill.
 It is for local access to a real user account.
@@ -154,5 +154,5 @@ If unread state changes unexpectedly, stop and adjust workflow before wider roll
 
 - Prefer narrow reads over broad scraping.
 - Start with specific chats or direct need.
-- Do not add write actions to this wrapper unless Robin explicitly asks.
+- Do not add write actions to this wrapper unless the user explicitly asks.
 - If later automation is needed, create a separate write-capable tool instead of weakening this one.

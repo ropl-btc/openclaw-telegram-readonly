@@ -13,7 +13,7 @@ dependencies = [
 ]
 license = { text = "MIT" }
 authors = [
-  { name = "Robin" }
+  { name = "telegram-readonly contributors" }
 ]
 
 [project.urls]

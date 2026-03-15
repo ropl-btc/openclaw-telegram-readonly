@@ -1,11 +1,11 @@
 ---
 name: telegram-readonly
-description: Read Robin's personal Telegram account in a controlled, read-only way via Telethon/MTProto. Use when you need to inspect Telegram chats, list dialogs, read recent messages from a specific chat, or search Telegram messages without relying on the Telegram Bot API. Do not use for sending, replying, editing, deleting, or any write action.
+description: Read the user's personal Telegram account in a controlled, read-only way via Telethon/MTProto. Use when you need to inspect Telegram chats, list dialogs, read recent messages from a specific chat, or search Telegram messages without relying on the Telegram Bot API. Do not use for sending, replying, editing, deleting, or any write action.
 ---
 
 # Telegram Readonly
 
-Use the installed `telegram-readonly` CLI for Telegram reads from Robin's personal account.
+Use the installed `telegram-readonly` CLI for Telegram reads from the user's personal account.
 
 This skill exists because Telegram Bot API is the wrong tool for reading a real personal account. Use MTProto via Telethon instead.
 
@@ -13,7 +13,7 @@ This skill exists because Telegram Bot API is the wrong tool for reading a real 
 
 - Use this skill only for reads.
 - Do not improvise write actions.
-- Do not add send/edit/delete logic to the wrapper unless Robin explicitly asks.
+- Do not add send/edit/delete logic to the wrapper unless the user explicitly asks.
 - Treat the Telethon session like a high-privilege secret.
 - Assume unread preservation is best-effort until tested on a real chat.
 
