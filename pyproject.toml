@@ -17,8 +17,8 @@ authors = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/ropl-btc/openclaw-telegram-readonly"
-Repository = "https://github.com/ropl-btc/openclaw-telegram-readonly"
+Homepage = "https://github.com/ropl-btc/telegram-readonly-cli"
+Repository = "https://github.com/ropl-btc/telegram-readonly-cli"
 
 [project.scripts]
 telegram-readonly = "telegram_readonly.cli:main"

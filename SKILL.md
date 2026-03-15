@@ -24,7 +24,7 @@ Prefer an installed CLI over hardcoded script paths.
 Preferred install:
 
 ```bash
-pipx install git+https://github.com/ropl-btc/openclaw-telegram-readonly.git
+pipx install git+https://github.com/ropl-btc/telegram-readonly-cli.git
 ```
 
 Fallback inside a repo checkout:
@@ -123,7 +123,7 @@ Dialog objects include:
 
 ## Files
 
-- Package repo: `https://github.com/ropl-btc/openclaw-telegram-readonly`
+- Package repo: `https://github.com/ropl-btc/telegram-readonly-cli`
 - Compatibility wrapper: `scripts/telegram_readonly.py`
 - Setup notes: `references/setup-and-safety.md`
 - Config storage: `~/.config/telegram-readonly/config.json`

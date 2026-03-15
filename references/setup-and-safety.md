@@ -29,7 +29,7 @@ Important: the underlying Telethon session still has high privilege because it i
 
 ## Files and locations
 
-- Package repo: `https://github.com/ropl-btc/openclaw-telegram-readonly`
+- Package repo: `https://github.com/ropl-btc/telegram-readonly-cli`
 - Package entrypoint: `telegram-readonly`
 - Local config: `~/.config/telegram-readonly/config.json`
 
@@ -44,14 +44,14 @@ Important: the underlying Telethon session still has high privilege because it i
 Preferred:
 
 ```bash
-pipx install git+https://github.com/ropl-btc/openclaw-telegram-readonly.git
+pipx install git+https://github.com/ropl-btc/telegram-readonly-cli.git
 ```
 
 Fallback:
 
 ```bash
-git clone https://github.com/ropl-btc/openclaw-telegram-readonly.git
-cd openclaw-telegram-readonly
+git clone https://github.com/ropl-btc/telegram-readonly-cli.git
+cd telegram-readonly-cli
 python3 -m venv .venv
 . .venv/bin/activate
 pip install .
