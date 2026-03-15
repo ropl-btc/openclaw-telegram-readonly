@@ -1,13 +1,13 @@
 # telegram-readonly
 
-Read-only Telegram access for your **personal account** via **Telethon/MTProto**, packaged as a small CLI plus an OpenClaw-compatible `SKILL.md`.
+Read-only Telegram access for your **personal account** via **Telethon/MTProto**, packaged as a small CLI plus an OpenClaw-compatible skill under `skills/telegram-readonly`.
 
 This is for people who want their OpenClaw assistant to **read** Telegram chats from their own account without relying on the Telegram Bot API.
 
 ## What this is
 
 - a small **read-only CLI** built on Telethon
-- a matching **OpenClaw skill** (`SKILL.md`)
+- a matching **OpenClaw skill** in `skills/telegram-readonly`
 - opinionated defaults for inbox-style workflows
 
 ## What this is not
@@ -188,15 +188,15 @@ telegram-readonly unread-dms --limit 10
 
 ## OpenClaw usage
 
-This repo includes a `SKILL.md` so it can be used as an OpenClaw skill/reusable workflow reference.
+This repo includes an OpenClaw skill under:
 
-Relevant files:
+- `skills/telegram-readonly/SKILL.md`
+- `skills/telegram-readonly/scripts/telegram_readonly.py`
+- `skills/telegram-readonly/references/setup-and-safety.md`
 
-- `SKILL.md`
-- `scripts/telegram_readonly.py`
-- `references/setup-and-safety.md`
+That subfolder is the one to use for skill-specific packaging and publishing.
 
-The `scripts/telegram_readonly.py` file is kept as a thin compatibility wrapper, but the main intended interface is the installed `telegram-readonly` command.
+The main intended interface for end users is still the installed `telegram-readonly` command.
 
 ## Safety notes
 
