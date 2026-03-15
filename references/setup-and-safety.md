@@ -29,29 +29,32 @@ Important: the underlying Telethon session still has high privilege because it i
 
 ## Files and locations
 
-- Skill root: `/root/.agents/skills/telegram-readonly`
-- Wrapper script: `/root/.agents/skills/telegram-readonly/scripts/telegram_readonly.py`
+- Package repo: `https://github.com/ropl-btc/openclaw-telegram-readonly`
+- Package entrypoint: `telegram-readonly`
 - Local config: `~/.config/telegram-readonly/config.json`
 
 ## Prerequisites
 
 1. Telegram API credentials from `https://my.telegram.org`
-2. Telethon installed in a dedicated environment
+2. Telethon installed through the package
 3. One interactive login to create a session string
 
-## Install Telethon
+## Install
 
-Recommended:
+Preferred:
 
 ```bash
-python3 -m venv /root/.venvs/telegram-readonly
-/root/.venvs/telegram-readonly/bin/pip install --upgrade pip telethon
+pipx install git+https://github.com/ropl-btc/openclaw-telegram-readonly.git
 ```
 
-Then run commands with:
+Fallback:
 
 ```bash
-/root/.venvs/telegram-readonly/bin/python /root/.agents/skills/telegram-readonly/scripts/telegram_readonly.py ...
+git clone https://github.com/ropl-btc/openclaw-telegram-readonly.git
+cd openclaw-telegram-readonly
+python3 -m venv .venv
+. .venv/bin/activate
+pip install .
 ```
 
 ## Telegram API credentials
@@ -64,17 +67,15 @@ At `https://my.telegram.org`:
 
 ## First auth flow
 
-Use either env vars or CLI args.
-
-Env example:
+Use env vars.
 
 ```bash
 export TELEGRAM_API_ID='12345678'
 export TELEGRAM_API_HASH='your_api_hash'
-/root/.venvs/telegram-readonly/bin/python /root/.agents/skills/telegram-readonly/scripts/telegram_readonly.py auth
+telegram-readonly auth
 ```
 
-The script will prompt for:
+The CLI will prompt for:
 - phone number
 - login code
 - 2FA password if enabled
@@ -87,7 +88,7 @@ Protect that file like a password.
 Show built-in help:
 
 ```bash
-/root/.venvs/telegram-readonly/bin/python /root/.agents/skills/telegram-readonly/scripts/telegram_readonly.py help
+telegram-readonly help
 ```
 
 List chats:
@@ -95,43 +96,43 @@ List chats:
 `dialogs --query` uses token-based matching across `name`, `username`, and `title`.
 
 ```bash
-/root/.venvs/telegram-readonly/bin/python /root/.agents/skills/telegram-readonly/scripts/telegram_readonly.py dialogs --limit 50
+telegram-readonly dialogs --limit 50
 ```
 
 Read one chat:
 
 ```bash
-/root/.venvs/telegram-readonly/bin/python /root/.agents/skills/telegram-readonly/scripts/telegram_readonly.py messages --chat '@username' --limit 50 --reverse
+telegram-readonly messages --chat '@username' --limit 50 --reverse
 ```
 
 Search globally:
 
 ```bash
-/root/.venvs/telegram-readonly/bin/python /root/.agents/skills/telegram-readonly/scripts/telegram_readonly.py search 'invoice' --limit 50
+telegram-readonly search 'invoice' --limit 50
 ```
 
 Search in one chat:
 
 ```bash
-/root/.venvs/telegram-readonly/bin/python /root/.agents/skills/telegram-readonly/scripts/telegram_readonly.py search 'deadline' --chat '@username' --limit 50
+telegram-readonly search 'deadline' --chat '@username' --limit 50
 ```
 
 List recent unread chats, excluding muted + archived by default:
 
 ```bash
-/root/.venvs/telegram-readonly/bin/python /root/.agents/skills/telegram-readonly/scripts/telegram_readonly.py unread-dialogs --limit 10
+telegram-readonly unread-dialogs --limit 10
 ```
 
 List recent unread DMs only, excluding muted + archived by default:
 
 ```bash
-/root/.venvs/telegram-readonly/bin/python /root/.agents/skills/telegram-readonly/scripts/telegram_readonly.py unread-dms --limit 10
+telegram-readonly unread-dms --limit 10
 ```
 
 Include muted and archived when needed:
 
 ```bash
-/root/.venvs/telegram-readonly/bin/python /root/.agents/skills/telegram-readonly/scripts/telegram_readonly.py unread-dialogs --limit 10 --include-muted --include-archived
+telegram-readonly unread-dialogs --limit 10 --include-muted --include-archived
 ```
 
 ## Unread behavior

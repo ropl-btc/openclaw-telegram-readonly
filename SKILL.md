@@ -5,7 +5,7 @@ description: Read Robin's personal Telegram account in a controlled, read-only w
 
 # Telegram Readonly
 
-Use the local Telethon wrapper for Telegram reads from Robin's personal account.
+Use the installed `telegram-readonly` CLI for Telegram reads from Robin's personal account.
 
 This skill exists because Telegram Bot API is the wrong tool for reading a real personal account. Use MTProto via Telethon instead.
 
@@ -17,54 +17,66 @@ This skill exists because Telegram Bot API is the wrong tool for reading a real 
 - Treat the Telethon session like a high-privilege secret.
 - Assume unread preservation is best-effort until tested on a real chat.
 
+## Installation preference
+
+Prefer an installed CLI over hardcoded script paths.
+
+Preferred install:
+
+```bash
+pipx install git+https://github.com/ropl-btc/openclaw-telegram-readonly.git
+```
+
+Fallback inside a repo checkout:
+
+```bash
+pip install .
+```
+
+After install, use:
+
+`telegram-readonly`
+
 ## Commands
 
-Use the wrapper script:
+### Show built-in help
 
-`/root/.agents/skills/telegram-readonly/scripts/telegram_readonly.py`
-
-Recommended Python environment:
-
-`/root/.venvs/telegram-readonly/bin/python`
+```bash
+telegram-readonly help
+```
 
 ### Authenticate once
 
 ```bash
 export TELEGRAM_API_ID='12345678'
 export TELEGRAM_API_HASH='your_api_hash'
-/root/.venvs/telegram-readonly/bin/python /root/.agents/skills/telegram-readonly/scripts/telegram_readonly.py auth
-```
-
-### Show built-in help
-
-```bash
-/root/.venvs/telegram-readonly/bin/python /root/.agents/skills/telegram-readonly/scripts/telegram_readonly.py help
+telegram-readonly auth
 ```
 
 ### List chats
 
-`dialogs --query` now does token-based matching across `name`, `username`, and `title`, so queries like `petros skynet` work even when the exact full string is not present as one substring.
+`dialogs --query` does token-based matching across `name`, `username`, and `title`, so queries like `petros skynet` work even when the exact full string is not present as one substring.
 
 ```bash
-/root/.venvs/telegram-readonly/bin/python /root/.agents/skills/telegram-readonly/scripts/telegram_readonly.py dialogs --limit 50
+telegram-readonly dialogs --limit 50
 ```
 
 ### Read recent messages
 
 ```bash
-/root/.venvs/telegram-readonly/bin/python /root/.agents/skills/telegram-readonly/scripts/telegram_readonly.py messages --chat '@username' --limit 50 --reverse
+telegram-readonly messages --chat '@username' --limit 50 --reverse
 ```
 
 ### Search messages
 
 ```bash
-/root/.venvs/telegram-readonly/bin/python /root/.agents/skills/telegram-readonly/scripts/telegram_readonly.py search 'invoice' --limit 50
+telegram-readonly search 'invoice' --limit 50
 ```
 
 Restrict search to one chat:
 
 ```bash
-/root/.venvs/telegram-readonly/bin/python /root/.agents/skills/telegram-readonly/scripts/telegram_readonly.py search 'deadline' --chat '@username' --limit 50
+telegram-readonly search 'deadline' --chat '@username' --limit 50
 ```
 
 ### List recent unread chats
@@ -72,28 +84,28 @@ Restrict search to one chat:
 Default behavior is opinionated: exclude **muted** and **archived** chats.
 
 ```bash
-/root/.venvs/telegram-readonly/bin/python /root/.agents/skills/telegram-readonly/scripts/telegram_readonly.py unread-dialogs --limit 10
+telegram-readonly unread-dialogs --limit 10
 ```
 
 Include muted and/or archived when needed:
 
 ```bash
-/root/.venvs/telegram-readonly/bin/python /root/.agents/skills/telegram-readonly/scripts/telegram_readonly.py unread-dialogs --limit 10 --include-muted --include-archived
+telegram-readonly unread-dialogs --limit 10 --include-muted --include-archived
 ```
 
 ### List recent unread DMs only
 
 ```bash
-/root/.venvs/telegram-readonly/bin/python /root/.agents/skills/telegram-readonly/scripts/telegram_readonly.py unread-dms --limit 10
+telegram-readonly unread-dms --limit 10
 ```
 
 ## Workflow
 
 1. Read `references/setup-and-safety.md` if setup, auth, or unread-state behavior matters.
-2. Ensure Telethon is installed in the dedicated venv.
+2. Ensure the `telegram-readonly` CLI is installed.
 3. Ensure Telegram API credentials exist.
 4. Run `auth` once to create the session.
-5. Use `dialogs`, `messages`, or `search` as needed.
+5. Use `dialogs`, `messages`, `search`, `unread-dialogs`, or `unread-dms` as needed.
 6. Keep usage narrow and intentional.
 
 ## Expected outputs
@@ -111,7 +123,8 @@ Dialog objects include:
 
 ## Files
 
-- Wrapper: `scripts/telegram_readonly.py`
+- Package repo: `https://github.com/ropl-btc/openclaw-telegram-readonly`
+- Compatibility wrapper: `scripts/telegram_readonly.py`
 - Setup notes: `references/setup-and-safety.md`
 - Config storage: `~/.config/telegram-readonly/config.json`
 
