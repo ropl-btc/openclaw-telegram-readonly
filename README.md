@@ -58,8 +58,8 @@ python3 scripts/telegram_readonly.py help
 ### Option 1: simple local venv
 
 ```bash
-git clone https://github.com/YOUR-USER/telegram-readonly.git
-cd telegram-readonly
+git clone https://github.com/ropl-btc/openclaw-telegram-readonly.git
+cd openclaw-telegram-readonly
 python3 -m venv .venv
 . .venv/bin/activate
 pip install --upgrade pip telethon
