@@ -1,3 +1,5 @@
+> Update: new self-contained skill without the need for installing CLI is here: https://github.com/ropl-btc/agent-skills
+
 # telegram-readonly
 
 Read-only Telegram access for your **personal account** via **Telethon/MTProto**, packaged as a small CLI plus an OpenClaw-compatible skill under `skills/telegram-readonly`.
